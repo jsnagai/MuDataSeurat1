@@ -206,7 +206,7 @@ read_layers_to_assay <- function(root, modalityname="") {
   if (any(grepl("_", rownames(var)))) {
     example_which <- grep("_", rownames(var))[1]
     example_before <- rownames(var)[example_which]
-    rownames(var) <- gsub("_", "-", rownames(var))
+    rownames(var) <- gsub("_", "$", rownames(var))
     example_after <- rownames(var)[example_which]
     warning(paste0("The var_names from modality ", modalityname, " have been renamed as feature names cannot contain '_'.",
       " E.g. ", example_before, " -> ", example_after, "."))
